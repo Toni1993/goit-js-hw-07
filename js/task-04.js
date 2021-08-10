@@ -10,7 +10,6 @@ function createCounter() {
   }
 
   function decrement() {
-    if (current <= 0) return 0
     return (current = current - 1)
   }
 

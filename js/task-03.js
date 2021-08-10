@@ -16,15 +16,13 @@ const images = [
 const gallery = document.createElement('ul')
 gallery.id = 'gallery'
 
-const galleryItems = images.map(image => {
+for (let image of images) {
   const imageItem = document.createElement('img')
   const listItem = document.createElement('li')
   imageItem.src = image.url
   imageItem.alt = image.alt
   listItem.insertAdjacentElement('afterbegin', imageItem)
   gallery.insertAdjacentElement('afterbegin', listItem)
-})
-
-console.log(gallery)
+}
 
 document.querySelector('p').insertAdjacentElement('afterend', gallery)
