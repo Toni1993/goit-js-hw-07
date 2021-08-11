@@ -16,13 +16,11 @@ const images = [
 const gallery = document.createElement('ul')
 gallery.id = 'gallery'
 
-for (let image of images) {
-  const imageItem = document.createElement('img')
-  const listItem = document.createElement('li')
-  imageItem.src = image.url
-  imageItem.alt = image.alt
-  listItem.insertAdjacentElement('afterbegin', imageItem)
-  gallery.insertAdjacentElement('afterbegin', listItem)
-}
-
-document.querySelector('p').insertAdjacentElement('afterend', gallery)
+const galleryItems = images
+  .map(image => {
+    return `<li><img src="${image.url}" alt="${image.alt}"></li>`
+  })
+  .join('')
+console.log(gallery)
+gallery.insertAdjacentHTML('afterbegin', galleryItems)
+document.body.append(gallery)
